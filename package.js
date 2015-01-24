@@ -1,6 +1,6 @@
 Package.describe({
   name: '3stack:match-library',
-  version: '1.0.0',
+  version: '1.0.1',
   summary: 'A library of additional check/match filters',
   git: 'https://github.com/3stack-software/meteor-match-library',
   documentation: 'README.md'
@@ -10,6 +10,7 @@ Package.describe({
 Package.onUse(function (api) {
   api.versionsFrom('METEOR@0.9.2');
 
+  api.use('underscore');
   api.use('check');
 
   api.export('MatchLib');
