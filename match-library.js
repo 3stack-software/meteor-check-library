@@ -94,8 +94,14 @@ MatchLib = {
     return Match.Where(function (x) {
       return _.difference(x, arr).length === 0;
     });
-  }
+  },
 
+  ObjectValues: function(m) {
+    return function(o) {
+      check(o, Object);
+      check(_.values(o), [m]);
+    }
+  }
 };
 
 if ('3stack:colour' in Package){
