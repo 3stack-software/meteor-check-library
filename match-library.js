@@ -4,7 +4,7 @@ var _randomIdRegexp = /^[23456789ABCDEFGHJKLMNPQRSTWXYZabcdefghijkmnopqrstuvwxyz
     _emailAddressRegexp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     _nonNegativeDecimalStringRegexp = /^([1-9]\d*|0)(\.\d+)?$/,
     _positiveIntegerRegexp = /^[1-9]\d*$/,
-    HexColour;
+    HexColour, CountryCodes;
 
 MatchLib = {
 
@@ -112,4 +112,14 @@ if ('3stack:colour' in Package){
       return HexColour.isValid(hex);
     })
   });
+}
+
+if ('3stack:country-codes' in Package){
+  CountryCodes = Package['3stack:country-codes'].CountryCodes;
+  _.extend(MatchLib, {
+    CountryCode: Match.Where(function(countryCode){
+      check(countryCode, String);
+      return CountryCodes._countriesByCode.hasOwnProperty(countryCode);
+    })
+  })
 }
