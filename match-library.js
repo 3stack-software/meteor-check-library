@@ -9,13 +9,7 @@ var _randomIdRegexp = /^[23456789ABCDEFGHJKLMNPQRSTWXYZabcdefghijkmnopqrstuvwxyz
 MatchLib = {
 
   Optional: function (type) {
-    return Match.Where(function (x) {
-      if (x == null) {
-        return true;
-      }
-      check(x, type);
-      return true;
-    });
+    return Match.Optional(Match.OneOf(undefined, null, type));
   },
 
   NullOr: function (type) {
