@@ -1,6 +1,6 @@
 Package.describe({
   name: '3stack:match-library',
-  version: '1.0.4',
+  version: '1.0.5',
   summary: 'A library of additional check/match filters',
   git: 'https://github.com/3stack-software/meteor-match-library',
   documentation: 'README.md'
