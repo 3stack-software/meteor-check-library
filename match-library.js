@@ -3,6 +3,7 @@
 var _randomIdRegexp = /^[23456789ABCDEFGHJKLMNPQRSTWXYZabcdefghijkmnopqrstuvwxyz]{17}$/,
     _emailAddressRegexp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
     _nonNegativeDecimalStringRegexp = /^([1-9]\d*|0)(\.\d+)?$/,
+    _decimalStringRegexp = /^(-?[1-9]\d*|0)(\.\d+)?$/,
     _positiveIntegerRegexp = /^[1-9]\d*$/,
     HexColour, CountryCodes;
 
@@ -67,6 +68,11 @@ MatchLib = {
   NonNegativeDecimalString: Match.Where(function (x) {
     check(x, String);
     return _nonNegativeDecimalStringRegexp.test(x);
+  }),
+
+  DecimalString: Match.Where(function (x) {
+    check(x, String);
+    return _decimalStringRegexp.test(x);
   }),
 
   EmailAddress: Match.Where(function (x) {
